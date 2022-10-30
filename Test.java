@@ -1,34 +1,35 @@
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.Scanner;
-
-/**
- * Test
- */
 public class Test {
+    static void bubbleSort(int[] arr) {
+        int n = arr.length;
+        int temp = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 1; j < (n - i); j++) {
+                if (arr[j - 1] > arr[j]) {
+                    // swap elements
+                    temp = arr[j - 1];
+                    arr[j - 1] = arr[j];
+                    arr[j] = temp;
+                }
+
+            }
+        }
+
+    }
 
     public static void main(String[] args) {
-        String str;
+        int arr[] = { 3, 60, 35, 2, 45, 320, 5 };
 
-        Scanner sc = new Scanner(System.in);
-        System.out.println("enter the number of char to be used");
-        int a = sc.nextInt();
-        System.out.println("enter the char");
-        sc.nextLine();
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < a; i++) {
-            String ch = sc.nextLine();
-            sb.append(ch);
-
+        System.out.println("Array Before Bubble Sort");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
         }
-        str = sb.toString();
-        System.out.println("string without ordering    " + str);
-        char charArray[] = str.toCharArray();
-        Arrays.sort(charArray);
-        System.out.println(charArray);
-        String S = String.valueOf(charArray);
-        for (int i = 0; i < S.length(); i++) {
-            System.out.print(S.charAt(i) + ",");
+        System.out.println();
+
+        bubbleSort(arr);// sorting array elements using bubble sort
+
+        System.out.println("Array After Bubble Sort");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
         }
 
     }
